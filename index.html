@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Forever Pritimika ❤️</title>
 
 <style>
@@ -26,6 +27,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 25px;
+
   background:
     linear-gradient(#0008,#000b),
     url("825323213_17899536879656125_5706079407998776898_n.webp")
@@ -51,7 +53,9 @@ h1 {
 }
 
 @keyframes beat {
-  50% { transform: scale(1.2); }
+  50% {
+    transform: scale(1.2);
+  }
 }
 
 .music-btn {
@@ -62,7 +66,48 @@ h1 {
   background: #ffffff30;
   margin-top: 25px;
   font-size: 16px;
+  cursor: pointer;
 }
+
+.music-btn:hover {
+  background: #ff69b4;
+}
+
+/* VIDEO FRAME */
+
+.video-section {
+  padding: 45px 15px;
+}
+
+.video-section h2 {
+  margin-bottom: 25px;
+  color: #ffc0d9;
+}
+
+.video-frame {
+  width: 230px;
+  margin: 25px auto;
+  padding: 7px;
+  border: 3px solid #ff69b4;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    #ffb6c1,
+    #ff69b4,
+    #ffd1dc
+  );
+  box-shadow: 0 0 20px pink;
+}
+
+.video-frame video {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+}
+
+/* PHOTO GALLERY */
 
 .gallery {
   padding: 55px 15px;
@@ -87,7 +132,7 @@ h1 {
 }
 
 .frame {
-  background: #fff;
+  background: white;
   padding: 9px 9px 25px;
   border-radius: 4px;
   box-shadow: 0 5px 20px #0009;
@@ -134,34 +179,17 @@ footer {
     font-size: 34px;
   }
 }
-  <head>
-<style>
-/* All your CSS goes here */
-
-.video-frame {
-  width: 230px;
-  margin: 25px auto;
-  padding: 7px;
-  border: 3px solid #ff69b4;
-  border-radius: 22px;
-  background: linear-gradient(135deg, #ffb6c1, #ff69b4);
-  box-shadow: 0 0 20px pink;
-}
-
-.video-frame video {
-  width: 100%;
-  height: 290px;
-  object-fit: cover;
-  border-radius: 15px;
-  display: block;
-}
 </style>
 </head>
 
 <body>
 
+<!-- HERO SECTION -->
+
 <section class="hero">
+
   <h1>Forever, Pritimika ❤️</h1>
+
   <div class="heart">♥</div>
 
   <p>
@@ -174,15 +202,41 @@ footer {
     You are my favourite person. ❤️
   </p>
 
-  <button class="music-btn" onclick="toggleMusic()" id="musicBtn">
-  ▶ Play Our Song 🎵
+  <button class="music-btn"
+  onclick="toggleMusic()"
+  id="musicBtn">
+    ▶ Play Our Song 🎵
   </button>
+
 </section>
+
+
+<!-- VIDEO SECTION -->
+
+<section class="video-section">
+
+  <h2>Our Special Moment ❤️</h2>
+
+  <div class="video-frame">
+
+    <video autoplay playsinline controls>
+      <source src="Priti.mp4" type="video/mp4">
+    </video>
+
+  </div>
+
+</section>
+
+
+<!-- PHOTO GALLERY -->
 
 <section class="gallery">
 
   <h2>My Beautiful Memories 🌹</h2>
-  <p class="subtitle">10 little pieces of my happiness ❤️</p>
+
+  <p class="subtitle">
+    10 little pieces of my happiness ❤️
+  </p>
 
   <div class="photos">
 
@@ -240,71 +294,87 @@ footer {
 
 </section>
 
+
 <footer>
-  Made with endless love ❤️<br>
+  Made with endless love ❤️
+  <br>
   Forever & Always, Pritimika.
 </footer>
+
+
+<!-- BACKGROUND MUSIC -->
 
 <audio id="song" autoplay loop>
   <source src="Moirang%20pritimika.mp3" type="audio/mpeg">
 </audio>
 
+
+<!-- JAVASCRIPT -->
+
 <script>
+
 const song = document.getElementById("song");
 const btn = document.getElementById("musicBtn");
 
-function toggleMusic() {
-  song.play().then(() => {
-    btn.innerHTML = "⏸ Pause Our Song 🎵";
-  }).catch(error => {
-    alert("Music error: " + error.message);
-  });
-}
-</script>
-const song = document.getElementById("song");
-const btn = document.getElementById("musicBtn");
+// Try automatic playback
 
-// Try automatic music
-window.addEventListener("load", function() {
-  song.volume = 1;
+function startMusic() {
 
   song.play().then(() => {
+
     btn.innerHTML = "⏸ Pause Our Song 🎵";
+
   }).catch(() => {
+
     btn.innerHTML = "▶ Play Our Song 🎵";
+
   });
-});
+
+}
 
 // Music button
-function toggleMusic() {
-  if (song.paused) {
-    song.play().then(() => {
-      btn.innerHTML = "⏸ Pause Our Song 🎵";
-    }).catch(error => {
-      alert("Music could not play. Check the MP3 file.");
-    });
-  } else {
-    song.pause();
-    btn.innerHTML = "▶ Play Our Song 🎵";
-  }
-}
-  <script>
-const song = document.getElementById("song");
-const btn = document.getElementById("musicBtn");
 
 function toggleMusic() {
-  song.play().then(() => {
-    btn.innerHTML = "⏸ Pause Our Song 🎵";
-  }).catch(error => {
-    alert("Music error: " + error.message);
-  });
+
+  if (song.paused) {
+
+    startMusic();
+
+  } else {
+
+    song.pause();
+
+    btn.innerHTML = "▶ Play Our Song 🎵";
+
+  }
+
 }
+
+// Try when website opens
+
+window.addEventListener("load", function() {
+
+  song.volume = 1;
+
+  startMusic();
+
+});
+
+// Start music after first interaction anywhere
+
+document.addEventListener("pointerdown", function(event) {
+
+  if (event.target.closest("#musicBtn")) {
+    return;
+  }
+
+  if (song.paused) {
+    startMusic();
+  }
+
+}, { once: true });
+
 </script>
 
 </body>
 </html>
-<div class="video-frame">
-  <video autoplay playsinline controls>
-    <source src="Priti.mp4" type="video/mp4">
-  </video>
-</div>
