@@ -250,6 +250,18 @@ footer {
 </audio>
 
 <script>
+  const song = document.getElementById("song");
+
+window.addEventListener("load", async () => {
+  song.volume = 1;
+
+  try {
+    await song.play();
+    console.log("Music started!");
+  } catch (error) {
+    console.log("Autoplay blocked by browser");
+  }
+});
 <script>
 const song = document.getElementById("song");
 const btn = document.getElementById("musicBtn");
