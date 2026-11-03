@@ -250,14 +250,35 @@ footer {
 </audio>
 
 <script>
-window.addEventListener("load", () => {
-  const song = document.getElementById("song");
+<script>
+const song = document.getElementById("song");
+const btn = document.getElementById("musicBtn");
+
+// Try automatic music
+window.addEventListener("load", function() {
   song.volume = 1;
 
-  song.play().catch(() => {
-    console.log("Autoplay blocked");
+  song.play().then(() => {
+    btn.innerHTML = "⏸ Pause Our Song 🎵";
+  }).catch(() => {
+    btn.innerHTML = "▶ Play Our Song 🎵";
   });
 });
+
+// Music button
+function toggleMusic() {
+  if (song.paused) {
+    song.play().then(() => {
+      btn.innerHTML = "⏸ Pause Our Song 🎵";
+    }).catch(error => {
+      alert("Music could not play. Check the MP3 file.");
+    });
+  } else {
+    song.pause();
+    btn.innerHTML = "▶ Play Our Song 🎵";
+  }
+}
+</script>
 </script>
 
 </body>
