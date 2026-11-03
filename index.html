@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forever Pritimika ❤️</title>
+<title>Forever, Pritimika ❤️</title>
 
 <style>
 * {
@@ -17,11 +17,9 @@ body {
   font-family: Georgia, serif;
   color: white;
   background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
-    url("825323213_17899536879656125_5706079407998776898_n.webp");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.7)),
+    url("825323213_17899536879656125_5706079407998776898_n.webp")
+    center/cover fixed;
 }
 
 .container {
@@ -62,7 +60,7 @@ button {
   padding: 14px 30px;
   border: 1px solid white;
   border-radius: 30px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,.2);
   color: white;
   font-size: 17px;
   cursor: pointer;
@@ -72,30 +70,64 @@ button:hover {
   background: white;
   color: black;
 }
+
+.music {
+  margin-top: 35px;
+  font-size: 15px;
+}
 </style>
 </head>
 
 <body>
 
 <div class="container">
-  <h1>Forever, Pritimika ❤️</h1>
 
-  <div class="heart">♥</div>
+<h1>Forever, Pritimika ❤️</h1>
 
-  <p>
-    Some people make life beautiful just by being in it.
-    You are one of those people.
-    <br><br>
-    No matter where life takes us,
-    you will always have a special place in my heart.
-    <br><br>
-    You are my favourite person. ❤️
-  </p>
+<div class="heart">♥</div>
 
-  <button onclick="alert('You are loved more than words can say ❤️')">
-    Open My Heart 💌
-  </button>
+<p>
+Some people make life beautiful just by being in it.
+You are one of those people.
+<br><br>
+No matter where life takes us,
+you will always have a special place in my heart.
+<br><br>
+You are my favourite person. ❤️
+</p>
+
+<button onclick="alert('You are loved more than words can say ❤️')">
+Open My Heart 💌
+</button>
+
+<div class="music">
+  <p>🎵 A little song for you</p>
+  <button id="musicBtn" onclick="toggleMusic()">▶ Play Music</button>
 </div>
+
+<audio id="song" loop>
+  <source src="Pritimika.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<script>
+const song = document.getElementById("song");
+const btn = document.getElementById("musicBtn");
+
+function toggleMusic() {
+  if (song.paused) {
+    song.play().then(() => {
+      btn.innerHTML = "⏸ Pause Music";
+    }).catch(() => {
+      alert("Please try playing the music again.");
+    });
+  } else {
+    song.pause();
+    btn.innerHTML = "▶ Play Music";
+  }
+}
+</script>
 
 </body>
 </html>
