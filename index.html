@@ -175,7 +175,7 @@ footer {
   </p>
 
   <button class="music-btn" onclick="toggleMusic()" id="musicBtn">
-    ▶ Play Our Song 🎵
+  ▶ Play Our Song 🎵
   </button>
 </section>
 
@@ -254,24 +254,13 @@ const song = document.getElementById("song");
 const btn = document.getElementById("musicBtn");
 
 function toggleMusic() {
-  if (song.paused) {
-    song.play().then(() => {
-      btn.innerHTML = "⏸ Pause Our Song 🎵";
-    });
-  } else {
-    song.pause();
-    btn.innerHTML = "▶ Play Our Song 🎵";
-  }
-}
-
-window.addEventListener("load", () => {
   song.play().then(() => {
     btn.innerHTML = "⏸ Pause Our Song 🎵";
-  }).catch(() => {
-    btn.innerHTML = "▶ Play Our Song 🎵";
+  }).catch(error => {
+    alert("Music error: " + error.message);
   });
-});
-<script>
+}
+</script>
 const song = document.getElementById("song");
 const btn = document.getElementById("musicBtn");
 
@@ -299,7 +288,17 @@ function toggleMusic() {
     btn.innerHTML = "▶ Play Our Song 🎵";
   }
 }
-</script>
+  <script>
+const song = document.getElementById("song");
+const btn = document.getElementById("musicBtn");
+
+function toggleMusic() {
+  song.play().then(() => {
+    btn.innerHTML = "⏸ Pause Our Song 🎵";
+  }).catch(error => {
+    alert("Music error: " + error.message);
+  });
+}
 </script>
 
 </body>
