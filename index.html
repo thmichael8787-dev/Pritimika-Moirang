@@ -250,21 +250,13 @@ footer {
 </audio>
 
 <script>
-const song = document.getElementById("song");
-const btn = document.getElementById("musicBtn");
+window.addEventListener("load", () => {
+  const song = document.getElementById("song");
+  song.volume = 1;
 
-function toggleMusic() {
-  if (song.paused) {
-    song.play().then(() => {
-      btn.innerHTML = "⏸ Pause Our Song 🎵";
-    }).catch(() => {
-      alert("Please try playing again.");
-    });
-  } else {
-    song.pause();
-    btn.innerHTML = "▶ Play Our Song 🎵";
-  }
-}
+  song.play().catch(() => {
+    console.log("Autoplay blocked");
+  });
 </script>
 
 </body>
